@@ -15,7 +15,10 @@ import Flutter
             result(FlutterMethodNotImplemented)
             return
         }
-        result("Greeting from iOS Code")
+        let text = "Greeting from iOS Code"
+        let args = call.arguments as? [String: String]
+        let name = args!["name"]
+        result(text + " " + name!)
     })
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
