@@ -41,7 +41,10 @@ class _MyAppState extends State<MyApp> {
               child: Text('Call Native Code'),
               onPressed: () async {
                 try {
-                  final String result = await platform.invokeMethod('greetingFromNativeCode');
+                  final String result = await platform.invokeMethod(
+                    'greetingFromNativeCode',
+                    {"name": "Yudi Setiawan"},
+                  );
                   greeting = result;
                 } on PlatformException catch (e) {
                   greeting = 'Failed to invoke: ${e.message}.';
